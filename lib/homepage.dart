@@ -29,10 +29,9 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height:    MediaQuery.of(context).padding.top +10,
-
+                    height: MediaQuery.of(context).padding.top + 10,
                   ),
-                  Text("LeaderBoard",
+                  Text("Leader Board",
                       style: TextStyle(color: textred, fontSize: 50)),
                   Text("- ACE 2022 -",
                       style: TextStyle(color: textwhite, fontSize: 30)),
@@ -51,8 +50,12 @@ class HomePage extends StatelessWidget {
                             //       '${aceController.newlist.elementAt(index)["sem"]} & ${aceController.newlist.elementAt(index)['point']} & ${aceController.newlist.elementAt(index)["rank"]}'),
                             // );
                             return InkWell(
-                              onTap: (){
-                                Get.toNamed("/deatils", arguments: aceController.newlist.elementAt(index)["sem"]);
+                              onTap: () {
+                                aceController.detailssem = aceController.newlist
+                                    .elementAt(index)["sem"];
+                                Get.toNamed("/deatils",
+                                    arguments: aceController.newlist
+                                        .elementAt(index)["sem"]);
                               },
                               child: Container(
                                 //  constraints:  BoxConstraints(minWidth: 500, maxWidth: MediaQuery.of(context).size.height,),

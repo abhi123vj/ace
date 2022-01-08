@@ -6,6 +6,7 @@ import 'dart:collection';
 
 class AceController extends GetxController {
   Map displaymap = {};
+  String detailssem = "";
   List newlist = [].obs;
   changemsg() async {
     DatabaseReference ref = FirebaseDatabase.instance.ref("ace2022/scores");
