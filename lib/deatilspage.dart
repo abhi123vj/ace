@@ -2,6 +2,8 @@ import 'package:ace/constants/colours.dart';
 import 'package:ace/controller/deatilscontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class DetailsAce extends StatelessWidget {
   const DetailsAce({Key? key}) : super(key: key);
@@ -16,7 +18,13 @@ class DetailsAce extends StatelessWidget {
         onPressed: () {
           // Add your onPressed code here!
         },
-        label: Obx(() => Text(detailsController.totalpoints.value)),
+        label: Obx(() => Text(detailsController.totalpoints.value, style: GoogleFonts.sourceCodePro(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.normal,
+                    ),)),
         icon: const Icon(Icons.thumb_up),
         backgroundColor: Colors.cyan,
       ),
@@ -29,7 +37,16 @@ class DetailsAce extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).padding.top + 10,
             ),
-            Text(semname, style: TextStyle(color: textred, fontSize: 50)),
+            Text(semname, style: GoogleFonts.bebasNeue(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.normal,
+                    )).shimmer(
+                      duration: Duration(seconds: 4),
+                      primaryColor: Vx.cyan100,
+                      secondaryColor: Colors.white),
             Expanded(
                 child: Obx(() => ListView.builder(
                     itemCount: detailsController.detaillist.length,
@@ -40,17 +57,41 @@ class DetailsAce extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                                detailsController.detaillist
-                                    .elementAt(index)[1],
-                                style:
-                                    TextStyle(color: textwhite, fontSize: 25)),
+                            Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      margin: EdgeInsets.only(right: 10),
+                                      width: 20 ,
+                                      child: Image.asset("assets/icons/rank${detailsController.detaillist
+                                    .elementAt(index)[0]}.png",fit: BoxFit.fitWidth,),
+                                    ),
+                                    Text(
+                                        detailsController.detaillist
+                                            .elementAt(index)[1],
+                                       style: GoogleFonts.mukta(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.italic,
+                    )),
+                                  ],
+                                ),
+                              ],
+                            ),
                             Text(
                                 detailsController.detaillist
                                     .elementAt(index)[2]
                                     .toString(),
-                                style:
-                                    TextStyle(color: textwhite, fontSize: 25)),
+                                  style: GoogleFonts.mukta(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.normal,
+                    ),)
                           ],
                         ),
                       );

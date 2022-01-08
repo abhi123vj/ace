@@ -2,8 +2,11 @@ import 'package:ace/constants/colours.dart';
 import 'package:ace/controller/acecontroller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 import 'package:get/get.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,10 +35,27 @@ class HomePage extends StatelessWidget {
                     height:    MediaQuery.of(context).padding.top +10,
 
                   ),
-                  Text("LeaderBoard",
-                      style: TextStyle(color: textred, fontSize: 50)),
+                  Text("Leader Board",
+                 style: GoogleFonts.robotoMono  (
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 40,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.normal,
+                    ),
+                  ).shimmer(
+                      duration: Duration(seconds: 4),
+                      primaryColor: Vx.red100,
+                      secondaryColor: Colors.white),
                   Text("- ACE 2022 -",
-                      style: TextStyle(color: textwhite, fontSize: 30)),
+                      style: GoogleFonts.sourceCodePro(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w700,
+                      fontStyle: FontStyle.normal,
+                    ),
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
