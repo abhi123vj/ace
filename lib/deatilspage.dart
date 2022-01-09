@@ -73,7 +73,8 @@ class DetailsAce extends StatelessWidget {
                                        style: GoogleFonts.mukta(
                       textStyle: Theme.of(context).textTheme.headline4,
                       fontSize: 20,
-                      color: Colors.white,
+                      color: detailsController.detaillist
+                                    .elementAt(index)[0]==4?textred:textwhite,
                       fontWeight: FontWeight.w700,
                       fontStyle: FontStyle.italic,
                     )),
@@ -88,7 +89,8 @@ class DetailsAce extends StatelessWidget {
                                   style: GoogleFonts.mukta(
                       textStyle: Theme.of(context).textTheme.headline4,
                       fontSize: 20,
-                      color: Colors.white,
+                      color:  detailsController.detaillist
+                                    .elementAt(index)[0]==4?textred:textwhite,
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.normal,
                     ),)

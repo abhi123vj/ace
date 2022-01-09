@@ -15,7 +15,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     Timer(
         const Duration(seconds: 1),
-        () => Get.toNamed("/home"));
+        () => Get.offAndToNamed("/home"));
     super.initState();
   }
 
