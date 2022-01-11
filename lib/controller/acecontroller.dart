@@ -1,10 +1,14 @@
+import 'package:ace/connection/connect.dart';
 import 'package:ace/model/scoremodel.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
 import 'dart:collection';
 
 class AceController extends GetxController {
+  Map source = {ConnectivityResult.none: false}.obs;
+  final MyConnectivity _connectivity = MyConnectivity.instance;
   Map displaymap = {};
   List newlist = [].obs;
   changemsg() async {
@@ -35,7 +39,12 @@ class AceController extends GetxController {
 
   @override
   void onInit() {
-    changemsg();
     super.onInit();
+    _connectivity.initialise();
+    _connectivity.myStream.listen((source) {
+      this.source = source;
+      print("the cont is ${this.source}");
+    });
+    changemsg();
   }
 }
